@@ -8,7 +8,7 @@ var request = require('request');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../angular/public')));
 
@@ -38,6 +38,7 @@ app.get('/playSong/:title', function(req, res) {
         json: true
       };
       request.get(options, function(error, response, body) {
+        console.log('BODY FROM body: ' , body);
         console.log('BODY FROM body: ' , body.tracks.items[0].album.images[0]);
         db.Song.create ({
           title: body.tracks.items[0].name,
@@ -56,9 +57,25 @@ app.get('/playSong/:title', function(req, res) {
 })
 
 app.get('/getSongs', function(req, res) {
-  db.Song.findAll()
+  db.Song.findAll({
+    order: [["updatedAt","DESC"]],
+    limit: 4
+  })
   .then(songs => {
     res.send(songs)
+  })
+})
+
+
+app.post('/deleteSong', function(req, res) {
+  console.log(req.body)
+  db.Song.destroy({
+    where: {
+      id : req.body.id 
+    }
+  })
+  .then(song => {
+    res.sendStatus(200, song)
   })
 })
 

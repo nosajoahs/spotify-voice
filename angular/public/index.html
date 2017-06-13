@@ -21,7 +21,7 @@
       <div class="col-md-5">
         <label>Song Name:</label>
         <input ng-model="songTitle" required>
-        <button type="button" class="btn btn-success" ng-click="playSong()">Play</button>
+        <button type="button" class="btn btn-success" ng-click="playSong()">PLAY</button>
         <div class = "songPlayer">
           <table class="table">
             <thead>
@@ -34,9 +34,9 @@
             </thead>
             <tbody>
               <tr>
-                <td style="vertical-align: middle">{{song.title}}</td>
+                <td style="vertical-align: middle"><font color="#FFF">{{song.title}}</td>
                 <td style="vertical-align: middle">{{song.artist}}</td>
-                <td style="vertical-align: middle">{{song.album}}</td>
+                <td style="vertical-align: middle"><font color="#FFF">{{song.album}}</td>
                 <td><img class="albumImg" src={{song.album_image}}></td>
               </tr>
             </tbody>
@@ -46,11 +46,12 @@
 
       <div class="col-md-7">
         <label>Playlist:</label>
-        <button type="button" class="btn btn-success" ng-click="getSongs()">Get</button>
+        <button type="button" class="btn btn-success" ng-click="getSongs()">GET</button>
         <div class = "songPlayList">
           <table class="table">
             <thead>
               <tr>
+                <th>Action</th>
                 <th>Title</th>
                 <th>Artist</th>
                 <th>Album</th>
@@ -59,10 +60,15 @@
             </thead>
             <tbody>
               <tr ng-repeat="song in songs">
-                <td style="vertical-align: middle">{{song.title}}</td>
+              <td style="vertical-align: middle">
+                <button type="button" class="btn btn-success" ng-click="playThis(song)">PLAY</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteSong(song)">DELETE</button>
+              </td>
+                <td style="vertical-align: middle"><font color="#FFF">{{song.title}}</td>
                 <td style="vertical-align: middle">{{song.artist}}</td>
-                <td style="vertical-align: middle">{{song.album}}</td>
+                <td style="vertical-align: middle"><font color="#FFF">{{song.album}}</td>
                 <td><img class="albumImg" src={{song.album_image}}></td>
+                <p ng-hide="true">{{song.preview_url}}</p>
               </tr>
 
             </tbody>

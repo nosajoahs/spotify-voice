@@ -1,3 +1,9 @@
+body {
+  background-image: url("https://www.technobuffalo.com/wp-content/uploads/2017/03/Spotify.jpg");
+  color: #6AE368;
+  background-size: 250%;
+}
+
 .songPlayer {
   border-style: inset;
   padding: 5px;
@@ -6,12 +12,15 @@
 
 .songPlayList {
   border-style: inset;
-  padding: 5px;
+  padding: 5px 10px;
   margin-top: 20px;
 }
 
 .btn {
   margin-left:20px;
+  border-radius: 15px;
+  text-align: center;
+
 }
 
 .albumImg {
@@ -20,3 +29,10 @@
   vertical-align: middle;
 }
 
+.btn-danger {
+  margin: 10px;
+}
+
+.container {
+  padding-top:40px;
+}
