@@ -26,23 +26,8 @@ var authOptions = {
     json: true
 };
 
-// app.post('/addSong', function (req, res) {
-//   db.Song.create ({
-//     title: req.body.title,
-//     artist: req.body.artist,
-//     album: req.body.album,
-//     url: req.body.url
-//   })
-//   .then(() => {
-//     res.send('Hello World!')
-//   })
-// });
-
-
 app.get('/playSong/:title', function(req, res) {
-
   console.log('req server playSong: ' , req.params.title)
-
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
 
@@ -53,15 +38,23 @@ app.get('/playSong/:title', function(req, res) {
         },
         json: true
       };
+
       request.get(options, function(error, response, body) {
         console.log('BODY FROM body: ' , body.tracks.items[0]);
-        //response.send(body.tracks.items[0])
+        db.Song.create ({
+          title: body.tracks.items[0].name,
+          artist: body.tracks.items[0].artists[0].name,
+          album: body.tracks.items[0].album.name,
+          preview_url: body.tracks.items[0].preview_url,
+          url: body.tracks.items[0].href
+        })
+        .then((song) => {
+          res.send(song)
+        })
       });
     }
   });
-
 })
-
 
 
 app.listen(8888, function () {

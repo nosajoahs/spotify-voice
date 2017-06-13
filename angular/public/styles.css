@@ -1,0 +1,15 @@
+.songPlayer {
+  border-style: inset;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.songPlayList {
+  border-style: inset;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.btn {
+  margin-left:20px;
+}

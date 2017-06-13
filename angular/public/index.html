@@ -7,8 +7,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script src="app.js"></script>
+
   </head>
 
 <body ng-app="spotifyVoiceApp" ng-controller="spotifyVoiceCtrl">
@@ -20,22 +23,56 @@
         <label>Song Name:</label>
         <input ng-model="songTitle" required>
         <button type="button" class="btn btn-success" ng-click="playSong()">Play</button>
+        <div class = "songPlayer">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{song.title}}</td>
+                <td>{{song.artist}}</td>
+                <td>{{song.album}}</td>
+                <td>{{song.preview_url}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="col-md-7">
         <label>Playlist:</label>
         <button type="button" class="btn btn-success" ng-click="getSongs()">Get</button>
+        <div class = "songPlayList">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>{{song.title}}</td>
+                <td>{{song.artist}}</td>
+                <td>{{song.album}}</td>
+                <td>{{song.preview_url}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-
-
-  <!--<button type="button" class="btn btn-primary" ng-click="userLogin()" ng-hide="false">Login</button>-->
-
-
-
-
-
 
 </body>
   
