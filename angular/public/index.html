@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+<body ng-app="spotifyVoiceApp" ng-controller="spotifyVoiceCtrl">
+  <div class="container">
+    <h1>SPOTIFY VOICE</h1>
+    <p>Say "Play" followed by a song name or type in the textbox below.</p>
+    <div class="row">
+      <div class="col-md-5">
+        <label>Song Name:</label>
+        <input ng-model="songTitle" required>
+        <button type="button" class="btn btn-success" ng-click="playSong()">Play</button>
+      </div>
+
+      <div class="col-md-7">
+        <label>Playlist:</label>
+        <button type="button" class="btn btn-success" ng-click="getSongs()">Get</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!--<button type="button" class="btn btn-primary" ng-click="userLogin()" ng-hide="false">Login</button>-->
+
+
+
+
+
+
+</body>
+  
+</html>

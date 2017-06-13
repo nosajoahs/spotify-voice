@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  Spotify Voice
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  The market for this product would be for anyone who has their hands full and would like a  way to play music other than typing through voice commands.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Spotify Voice will help any music lovers listen to music without lifting a finger. It will use voice activation and the keyword "Play" followed by a song name to play that song. 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  The problem many of us have is that if we are not at the computer, perhaps a bathroom or shower break or we are in bed and want to play some relaxing music, we would not want to get up from the comfort of our bed just to click a button. Likewise, if you are in a different room such as feeding your baby or you're busy eating greasy food you wouldn't want to grease your precious macbook or pc.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  Instead, you can say something like: "Play Flapper Girl" or "Play Flapper Girl by the Lumineers" or "Play (Insert Album here)" and it will play that song for you with that artist or album. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+"Spotify Voice is the new Facebook."
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+"Just launch the app from the web browser, and it will listen for anything after the keyword 'Play'".
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "Wow, my life has changed since using Spotify Voice, I sing in the shower more, the sky is more blue, and it has helped me in tremendous ways through my struggles in life."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  "If you are still here then I must be really good at writing! Go to the link to get started!"
