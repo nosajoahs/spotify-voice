@@ -38,19 +38,22 @@ app.get('/playSong/:title', function(req, res) {
         json: true
       };
       request.get(options, function(error, response, body) {
-        console.log('BODY FROM body: ' , body);
-        console.log('BODY FROM body: ' , body.tracks.items[0].album.images[0]);
-        db.Song.create ({
-          title: body.tracks.items[0].name,
-          artist: body.tracks.items[0].artists[0].name,
-          album: body.tracks.items[0].album.name,
-          preview_url: body.tracks.items[0].preview_url,
-          url: body.tracks.items[0].href,
-          album_image: body.tracks.items[0].album.images[0].url
-        })
-        .then((song) => {
-          res.send(song)
-        })
+        if(body.tracks.items[0].preview_url) {
+          db.Song.create ({
+            title: body.tracks.items[0].name,
+            artist: body.tracks.items[0].artists[0].name,
+            album: body.tracks.items[0].album.name,
+            preview_url: body.tracks.items[0].preview_url,
+            url: body.tracks.items[0].href,
+            album_image: body.tracks.items[0].album.images[0].url
+          })
+          .then((song) => {
+            res.send(song)
+          })
+        }
+        else {
+          res.send('cannot get preview url')
+        }
       });
     }
   });
@@ -59,7 +62,7 @@ app.get('/playSong/:title', function(req, res) {
 app.get('/getSongs', function(req, res) {
   db.Song.findAll({
     order: [["updatedAt","DESC"]],
-    limit: 4
+    // limit: 4
   })
   .then(songs => {
     res.send(songs)
@@ -68,7 +71,6 @@ app.get('/getSongs', function(req, res) {
 
 
 app.post('/deleteSong', function(req, res) {
-  console.log(req.body)
   db.Song.destroy({
     where: {
       id : req.body.id 

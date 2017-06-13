@@ -4,6 +4,10 @@ app.controller('spotifyVoiceCtrl', function ($scope, $http) {
 
   var audio = new Audio();
 
+  $scope.pauseSong = function() {
+    audio.pause()
+  }
+
   $scope.playSong = function() {
     console.log('song title' , $scope.songTitle)
     var songTitle = $scope.songTitle;
@@ -17,6 +21,7 @@ app.controller('spotifyVoiceCtrl', function ($scope, $http) {
       audio.src = $scope.song.preview_url;
       if($scope.song.preview_url) {
         audio.play();
+        $scope.getSongs();
       }
       else {
         window.alert('Song is not available for Preview.')
@@ -42,6 +47,8 @@ app.controller('spotifyVoiceCtrl', function ($scope, $http) {
       $scope.songs = response.data;
     })
   }
+
+  $scope.getSongs();
 
   $scope.deleteSong = function(song) {
     var song = {
