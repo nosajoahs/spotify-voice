@@ -30,7 +30,6 @@ app.get('/playSong/:title', function(req, res) {
   console.log('req server playSong: ' , req.params.title)
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
-
       var options = {
         url: 'https://api.spotify.com/v1/search?q=' + req.params.title + '&type=track',
         headers: {
@@ -38,15 +37,15 @@ app.get('/playSong/:title', function(req, res) {
         },
         json: true
       };
-
       request.get(options, function(error, response, body) {
-        console.log('BODY FROM body: ' , body.tracks.items[0]);
+        console.log('BODY FROM body: ' , body.tracks.items[0].album.images[0]);
         db.Song.create ({
           title: body.tracks.items[0].name,
           artist: body.tracks.items[0].artists[0].name,
           album: body.tracks.items[0].album.name,
           preview_url: body.tracks.items[0].preview_url,
-          url: body.tracks.items[0].href
+          url: body.tracks.items[0].href,
+          album_image: body.tracks.items[0].album.images[0].url
         })
         .then((song) => {
           res.send(song)
@@ -54,6 +53,13 @@ app.get('/playSong/:title', function(req, res) {
       });
     }
   });
+})
+
+app.get('/getSongs', function(req, res) {
+  db.Song.findAll()
+  .then(songs => {
+    res.send(songs)
+  })
 })
 
 

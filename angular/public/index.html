@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script src="app.js"></script>
-
   </head>
 
 <body ng-app="spotifyVoiceApp" ng-controller="spotifyVoiceCtrl">
@@ -30,15 +29,15 @@
                 <th>Title</th>
                 <th>Artist</th>
                 <th>Album</th>
-                <th>Url</th>
+                <th>Image</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{{song.title}}</td>
-                <td>{{song.artist}}</td>
-                <td>{{song.album}}</td>
-                <td>{{song.preview_url}}</td>
+                <td style="vertical-align: middle">{{song.title}}</td>
+                <td style="vertical-align: middle">{{song.artist}}</td>
+                <td style="vertical-align: middle">{{song.album}}</td>
+                <td><img class="albumImg" src={{song.album_image}}></td>
               </tr>
             </tbody>
           </table>
@@ -59,12 +58,11 @@
               </tr>
             </thead>
             <tbody>
-              
-              <tr>
-                <td>{{song.title}}</td>
-                <td>{{song.artist}}</td>
-                <td>{{song.album}}</td>
-                <td>{{song.preview_url}}</td>
+              <tr ng-repeat="song in songs">
+                <td style="vertical-align: middle">{{song.title}}</td>
+                <td style="vertical-align: middle">{{song.artist}}</td>
+                <td style="vertical-align: middle">{{song.album}}</td>
+                <td><img class="albumImg" src={{song.album_image}}></td>
               </tr>
 
             </tbody>
