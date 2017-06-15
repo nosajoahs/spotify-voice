@@ -38,7 +38,7 @@ app.get('/playSong/:title', function(req, res) {
         json: true
       };
       request.get(options, function(error, response, body) {
-        if(body.tracks.items[0].preview_url) {
+        if(typeof body.tracks.items[0] !== 'undefined') {
           db.Song.create ({
             title: body.tracks.items[0].name,
             artist: body.tracks.items[0].artists[0].name,
@@ -85,3 +85,4 @@ app.post('/deleteSong', function(req, res) {
 app.listen(8888, function () {
   console.log('listening on port 8888!')
 })
+

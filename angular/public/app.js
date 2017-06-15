@@ -68,7 +68,7 @@ app.controller('spotifyVoiceCtrl', function ($scope, $http) {
   if (annyang) {
     var commands = {
       'pause': function () {
-          audio.pause();
+          $scope.pauseSong();
       },
       'hello': function () {
          console.log("hello world")
@@ -76,6 +76,9 @@ app.controller('spotifyVoiceCtrl', function ($scope, $http) {
       'play *song': function (song) {
         $scope.songTitle = song
         $scope.playSong();
+      },
+      'hello spotify': function () {
+        window.alert('hello jason')
       },
       ':nomatch': function () {
       console.log('Sorry, I don\'t recognize this command')

@@ -14,71 +14,69 @@
     <script src="app.js"></script>
   </head>
 
-<body ng-app="spotifyVoiceApp" ng-controller="spotifyVoiceCtrl">
-  <div class="container">
-    <h1>SPOTIFY VOICE</h1>
-    <p>Say "Play" followed by a track name or type in the textbox below.</p>
-    <div class="row">
-      <div class="col-md-5">
-        <label>Song Name:</label>
-        <input ng-model="songTitle" required>
-        <button type="button" class="btn btn-success btnLeft" ng-click="playSong()">PLAY</button>
-        <div class = "songPlayer">
-          <table class="table">
-            <thead>
-              <tr>
-                <th style="text-align:center">Title</th>
-                <th style="text-align:center">Artist</th>
-                <th style="text-align:center">Album</th>
-                <th style="text-align:center">Image</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="vertical-align: middle"><font color="#FFF">{{song.title}}</td>
-                <td style="vertical-align: middle">{{song.artist}}</td>
-                <td style="vertical-align: middle"><font color="#FFF">{{song.album}}</td>
-                <td><img class="albumImg" src={{song.album_image}}></td>
-              </tr>
-            </tbody>
-          </table>
+  <body ng-app="spotifyVoiceApp" ng-controller="spotifyVoiceCtrl">
+    <div class="container">
+      <h1>SPOTIFY VOICE</h1>
+      <p>Say "Play" followed by a track name or type in the textbox below.</p>
+      <div class="row">
+
+        <div class="col-md-5">
+          <label>Song Name:</label>
+          <input ng-model="songTitle" required>
+          <button type="button" class="btn btn-success btnLeft" ng-click="playSong()">PLAY</button>
+          <div class = "songPlayer">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="text-align:center">Title</th>
+                  <th style="text-align:center">Artist</th>
+                  <th style="text-align:center">Album</th>
+                  <th style="text-align:center">Image</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="vertical-align: middle"><font color="#FFF">{{song.title}}</td>
+                  <td style="vertical-align: middle">{{song.artist}}</td>
+                  <td style="vertical-align: middle"><font color="#FFF">{{song.album}}</td>
+                  <td><img class="albumImg" src={{song.album_image}}></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-7">
-        <label>Playlist:</label>
-        <button type="button" class="btn btn-success btnLeft" ng-click="pauseSong()">STOP</button>
-        <div class = "songPlayList">
-          <table class="table">
-            <thead>
-              <tr>
-                <th style="text-align:center">Action</th>
-                <th style="text-align:center">Title</th>
-                <th style="text-align:center">Artist</th>
-                <th style="text-align:center">Album</th>
-                <th style="text-align:center">Url</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="song in songs">
-              <td style="vertical-align: middle">
-                <button type="button" class="btn btn-success" ng-click="playThis(song)">PLAY</button>
-                <button type="button" class="btn btn-danger" ng-click="deleteSong(song)">DELETE</button>
-              </td>
-                <td style="vertical-align: middle"><font color="#FFF">{{song.title}}</td>
-                <td style="vertical-align: middle">{{song.artist}}</td>
-                <td style="vertical-align: middle"><font color="#FFF">{{song.album}}</td>
-                <td><img class="albumImg" src={{song.album_image}}></td>
-                <p ng-hide="true">{{song.preview_url}}</p>
-              </tr>
-
-            </tbody>
-          </table>
+        <div class="col-md-7">
+          <label>Playlist:</label>
+          <button type="button" class="btn btn-success btnLeft" ng-click="pauseSong()">STOP</button>
+          <div class = "songPlayList">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="text-align:center">Action</th>
+                  <th style="text-align:center">Title</th>
+                  <th style="text-align:center">Artist</th>
+                  <th style="text-align:center">Album</th>
+                  <th style="text-align:center">Url</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="song in songs">
+                <td style="vertical-align: middle">
+                  <button type="button" class="btn btn-success" ng-click="playThis(song)">PLAY</button>
+                  <button type="button" class="btn btn-danger" ng-click="deleteSong(song)">DELETE</button>
+                </td>
+                  <td style="vertical-align: middle"><font color="#FFF">{{song.title}}</td>
+                  <td style="vertical-align: middle">{{song.artist}}</td>
+                  <td style="vertical-align: middle"><font color="#FFF">{{song.album}}</td>
+                  <td><img class="albumImg" src={{song.album_image}}></td>
+                  <p ng-hide="true">{{song.preview_url}}</p>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-</body>
-  
+  </body>
 </html>
