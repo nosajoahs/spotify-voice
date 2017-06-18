@@ -35,4 +35,4 @@ bower_components/
 .flooignore
 
 #API Keys and Tokens
-config.js
+/config.js
