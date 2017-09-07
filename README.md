@@ -50,6 +50,8 @@ For example, to play "Flapper Girl" by the Lumineers you can say:
 
 Note that the url's are only 30 seconds long due to spotify's API limitation.
 
+A deployed example can be found here on heroku: 
+https://stormy-dusk-67888.herokuapp.com/
 
 
 
